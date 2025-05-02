@@ -38,7 +38,16 @@ export default function HomeSection() {
           </Button>
         </div>
       </div>
-      
+      <div className="flex justify-center items-center">
+         <Image
+            src="https://picsum.photos/500/500"
+            alt="Android Development Concept"
+            width={500}
+            height={500}
+            className="rounded-lg shadow-lg object-cover"
+            data-ai-hint="android developer code"
+         />
+      </div>
     </section>
   );
 }
