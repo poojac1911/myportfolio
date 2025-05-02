@@ -29,33 +29,36 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
   // Validate input against the schema
   const parsedInput = SendEmailSchema.safeParse(input);
   if (!parsedInput.success) {
-    console.error('Invalid email input:', parsedInput.error);
-    return { success: false, message: 'Invalid input data.' };
+    console.error('Invalid email input:', parsedInput.error.flatten().fieldErrors);
+    // Provide more specific feedback if possible, otherwise a general message
+    const errorMessages = Object.entries(parsedInput.error.flatten().fieldErrors)
+        .map(([key, value]) => `${key}: ${value?.join(', ')}`)
+        .join('; ');
+    return { success: false, message: `Invalid input: ${errorMessages || 'Please check your entries.'}` };
   }
 
   const { name, email, message } = parsedInput.data;
 
-  // --- Nodemailer Configuration ---
-  // IMPORTANT: Configure your email provider details securely, ideally via environment variables.
-  // This example uses generic SMTP settings. Replace with your specific provider (SendGrid, Resend, Gmail App Password, etc.)
+  // --- Check for SMTP Configuration ---
   if (!smtpHost || !smtpUser || !smtpPass) {
      console.error('SMTP configuration missing. Set SMTP_HOST, SMTP_USER, SMTP_PASS environment variables.');
-     // In a real app, you might throw an error or return a specific failure message.
-     // For now, we'll simulate success for UI testing, but log the config error.
-     // return { success: false, message: 'Server email configuration error.' };
-     console.warn('Simulating email success due to missing SMTP configuration.');
-     return { success: true, message: 'Email sent successfully (Simulated).' };
+     // Return a specific error message indicating server configuration issue
+     return { success: false, message: 'Email server not configured. Please contact the administrator.' };
   }
 
-
+  // --- Nodemailer Configuration ---
   const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
     secure: smtpPort === 465, // true for 465, false for other ports like 587
     auth: {
-      user: smtpUser, // Your email address
-      pass: smtpPass, // Your email password or app-specific password
+      user: smtpUser,
+      pass: smtpPass,
     },
+    // Optional: Add timeout settings
+    // connectionTimeout: 5000, // 5 seconds
+    // greetingTimeout: 5000,
+    // socketTimeout: 5000,
   });
 
   const mailOptions = {
@@ -77,22 +80,29 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
     // console.log('Nodemailer transporter verified.');
 
     // Send mail with defined transport object
+    console.log(`Attempting to send email to ${recipientEmail} from ${email}...`);
     const info = await transporter.sendMail(mailOptions);
     console.log('Message sent: %s', info.messageId);
     return { success: true, message: 'Email sent successfully!' };
 
   } catch (error) {
-    console.error('Error sending email:', error);
-    // Provide a more generic error message to the client
-    return { success: false, message: 'Failed to send email. Please try again later.' };
+    console.error('Error sending email via Nodemailer:', error);
+    // Provide a more generic error message to the client, but log the specific error server-side
+    // Check for specific error types if needed (e.g., authentication failure)
+    let clientMessage = 'Failed to send email. Please try again later.';
+    if (error instanceof Error) {
+        // You might customize the message based on error.code or error.message
+        // For example: if (error.code === 'EAUTH') clientMessage = 'Authentication failed. Please check server configuration.';
+    }
+    return { success: false, message: clientMessage };
   }
 }
 
 // --- IMPORTANT ---
-// 1. Install nodemailer: npm install nodemailer @types/nodemailer
+// 1. Ensure nodemailer is installed: npm install nodemailer @types/nodemailer
 // 2. Configure Environment Variables: Set up SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and CONTACT_FORM_RECIPIENT_EMAIL
-//    in your .env.local file or hosting environment.
+//    in your .env.local file or hosting environment. **These are crucial for the email functionality to work.**
 // 3. Security: For services like Gmail, you might need to use an "App Password" instead of your regular password
 //    if 2-Step Verification is enabled. Refer to your email provider's documentation.
-// 4. Error Handling: Enhance error handling based on specific SMTP errors if needed.
-// 5. Rate Limiting/Security: Consider adding rate limiting or CAPTCHA to prevent abuse.
+// 4. Debugging: Check server logs for detailed error messages from Nodemailer if emails fail to send.
+// 5. Rate Limiting/Security: Consider adding rate limiting or CAPTCHA (e.g., Google reCAPTCHA) to prevent abuse of the contact form.
