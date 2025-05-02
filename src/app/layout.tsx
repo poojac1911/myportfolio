@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans'; // Corrected import
+import { GeistSans } from 'geist/font/sans';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -7,11 +7,11 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 
-const fontSans = GeistSans; // Use GeistSans directly as per its documentation
+const fontSans = GeistSans;
 
 export const metadata: Metadata = {
   title: "Pooja Choudhary | Android Developer",
-  description: "Personal portfolio website for Pooja Choudhary, an Android Developer and Kotlin Multiplatform Specialist based in Mumbai, India.",
+  description: "Personal portfolio website for Pooja Choudhary, an Android Developer with Kotlin Multiplatform experience based in Mumbai, India.",
   keywords: "Pooja Choudhary, Android Developer, Kotlin, KMM, Jetpack Compose, Ktor, SQLDelight, Koin, Portfolio, Mumbai, India",
 };
 

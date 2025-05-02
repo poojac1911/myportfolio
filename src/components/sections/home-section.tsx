@@ -11,7 +11,7 @@ export default function HomeSection() {
           Pooja Choudhary
         </h1>
         <p className="text-xl md:text-2xl text-primary font-medium">
-          Android Developer | Kotlin Multiplatform Specialist
+          Android Developer | Kotlin Multiplatform
         </p>
         <p className="text-muted-foreground max-w-xl mx-auto md:mx-0">
           Passionate about building seamless cross-platform applications with a focus on clean UI and modern aesthetics. Based in Mumbai, India.
@@ -44,7 +44,7 @@ export default function HomeSection() {
             alt="Pooja Choudhary"
             width={400}
             height={400}
-            className="rounded-full border-4 border-primary/20 shadow-lg object-cover"
+            className="rounded-full border-4 border-primary/20 shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)] object-cover"
             data-ai-hint="professional woman portrait tech"
             priority
           />
