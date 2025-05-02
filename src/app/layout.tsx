@@ -6,6 +6,9 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+
 
 const fontSans = GeistSans;
 
@@ -40,6 +43,8 @@ export default function RootLayout({
             <Footer />
           </div>
           <Toaster />
+          <SpeedInsights/>
+           <Analytics/>
         </ThemeProvider>
       </body>
     </html>

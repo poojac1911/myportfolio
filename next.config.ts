@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+       {
+        protocol: 'https',
+        hostname: 'via.placeholder.com', // Allow placeholder images
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
