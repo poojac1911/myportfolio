@@ -1,0 +1,56 @@
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+
+export default function HomeSection() {
+  return (
+    <section id="home" className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-3.5rem)] pt-16 pb-8 md:pt-0 md:pb-0">
+      <div className="space-y-6 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+          Pooja Choudhary
+        </h1>
+        <p className="text-xl md:text-2xl text-primary font-medium">
+          Android Developer | Kotlin Multiplatform Specialist
+        </p>
+        <p className="text-muted-foreground max-w-xl mx-auto md:mx-0">
+          Passionate about building seamless cross-platform applications with a focus on clean UI and modern aesthetics. Based in Mumbai, India.
+        </p>
+        <div className="flex justify-center md:justify-start space-x-4 pt-4">
+          <Button asChild variant="default">
+            <Link href="#contact">Contact Me</Link>
+          </Button>
+          <Button asChild variant="outline" size="icon">
+            <a href="https://www.linkedin.com/in/pooja-choudhary-/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin className="h-5 w-5" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="icon">
+            <a href="https://github.com/pooja-choudhary-17" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github className="h-5 w-5" />
+            </a>
+          </Button>
+           <Button asChild variant="outline" size="icon">
+            <a href="mailto:poojachoudhary170702@gmail.com" aria-label="Email">
+              <Mail className="h-5 w-5" />
+            </a>
+          </Button>
+        </div>
+      </div>
+       <div className="relative flex justify-center items-center">
+          {/* Placeholder Image - Replace with an actual professional photo */}
+          <Image
+            src="https://picsum.photos/400/400"
+            alt="Pooja Choudhary"
+            width={400}
+            height={400}
+            className="rounded-full border-4 border-primary/20 shadow-lg object-cover"
+            data-ai-hint="professional woman portrait tech"
+            priority
+          />
+          <div className="absolute inset-0 rounded-full border-8 border-secondary animate-pulse opacity-30 -z-10"></div>
+           <div className="absolute inset-4 rounded-full border-8 border-accent animate-pulse opacity-20 -z-10 delay-500"></div>
+        </div>
+    </section>
+  );
+}
