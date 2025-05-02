@@ -46,42 +46,38 @@ export default function ContactSection() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: Implement actual form submission logic (e.g., send email via API)
-    // Example: using a server action or API route
-    // try {
-    //   const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(values),
-    //   });
-    //   if (!response.ok) throw new Error('Network response was not ok.');
-    //   toast({
-    //     title: "Message Sent!",
-    //     description: "Thanks for reaching out. I'll get back to you soon.",
-    //   })
-    //   form.reset()
-    // } catch (error) {
-    //   console.error('Failed to send message:', error);
-    //    toast({
-    //     title: "Uh oh! Something went wrong.",
-    //     description: "There was a problem sending your message. Please try again later.",
-    //     variant: "destructive",
-    //   })
-    // }
+    // TODO: Implement actual email sending via a Server Action or API route.
+    // This requires setting up an email service (e.g., Nodemailer, SendGrid, Resend).
+    console.log("Attempting to send email with the following data:");
+    console.log("To: choudharypooja0107@gmail.com");
+    console.log("From Name:", values.name);
+    console.log("From Email:", values.email);
+    console.log("Message:", values.message);
 
-     console.log("Form submitted (simulated):", values)
+    // Simulate submission delay for user feedback
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-     // Simulate API call
-     await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+       // In a real implementation, the Server Action/API call would happen here.
+       // For now, we assume success.
 
-    // Show success toast
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
+       // Show success toast
+        toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+        })
 
-    // Reset form
-    form.reset()
+        // Reset form
+        form.reset()
+
+    } catch (error) {
+        console.error('Failed to send message (simulation):', error);
+        toast({
+            title: "Uh oh! Something went wrong.",
+            description: "There was a problem sending your message. Please try again later.",
+            variant: "destructive",
+        })
+    }
   }
 
   return (

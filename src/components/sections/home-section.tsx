@@ -38,20 +38,7 @@ export default function HomeSection() {
           </Button>
         </div>
       </div>
-       <div className="relative flex justify-center items-center">
-          {/* Placeholder Image - Replace with an actual professional photo */}
-          <Image
-            src="https://picsum.photos/400/400"
-            alt="Pooja Choudhary"
-            width={400}
-            height={400}
-            className="rounded-full border-4 border-primary/20 shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)] object-cover"
-            data-ai-hint="professional woman portrait tech"
-            priority
-          />
-          <div className="absolute inset-0 rounded-full border-8 border-secondary animate-pulse opacity-30 -z-10"></div>
-           <div className="absolute inset-4 rounded-full border-8 border-accent animate-pulse opacity-20 -z-10 delay-500"></div>
-        </div>
+      
     </section>
   );
 }
