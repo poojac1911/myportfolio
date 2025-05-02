@@ -1,3 +1,4 @@
+// src/components/sections/contact-section.tsx
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -111,7 +112,7 @@ export default function ContactSection() {
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-6"
-                  suppressHydrationWarning // Add suppressHydrationWarning here
+                  // Removed suppressHydrationWarning
                 >
                     <FormField
                     control={form.control}
