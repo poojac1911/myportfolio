@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Code, Users, Brain } from "lucide-react";
+import { Button } from "@/components/ui/button"; // Added import
 
 const technicalSkills = [
   "Kotlin", "KMM (Kotlin Multiplatform Mobile)", "Jetpack Compose", "Android SDK", "Java",
