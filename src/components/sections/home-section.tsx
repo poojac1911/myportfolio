@@ -39,13 +39,13 @@ export default function HomeSection() {
         </div>
       </div>
       <div className="flex justify-center items-center">
+         {/* Assumes the android mascot image is saved in public/android-mascot.png */}
          <Image
-            src="https://picsum.photos/500/500"
-            alt="Android Development Concept"
-            width={500}
-            height={500}
-            className="rounded-lg shadow-lg object-cover"
-            data-ai-hint="android developer code"
+            src="/android-mascot.png"
+            alt="Android Mascot"
+            width={400} // Adjusted size for better fit
+            height={400} // Adjusted size for better fit
+            className="rounded-lg shadow-lg object-contain" // Use object-contain to prevent distortion
          />
       </div>
     </section>
