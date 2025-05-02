@@ -1,22 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function HomeSection() {
   return (
-    <section id="home" className="container grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-3.5rem)] pt-16 pb-8 md:pt-0 md:pb-0">
-      <div className="space-y-6 text-center md:text-left">
+    <section id="home" className="container grid grid-cols-1 items-center min-h-[calc(100vh-3.5rem)] pt-16 pb-8 md:pt-0 md:pb-0">
+      <div className="space-y-6 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
           Pooja Choudhary
         </h1>
         <p className="text-xl md:text-2xl text-primary font-medium">
           Android Developer | Kotlin Multiplatform
         </p>
-        <p className="text-muted-foreground max-w-xl mx-auto md:mx-0">
+        <p className="text-muted-foreground max-w-xl mx-auto">
           Passionate about building seamless cross-platform applications using KMM with a focus on clean UI and robust architecture. Based in Mumbai, India.
         </p>
-        <div className="flex justify-center md:justify-start space-x-4 pt-4">
+        <div className="flex justify-center space-x-4 pt-4">
           <Button asChild variant="default">
             <Link href="#contact">Contact Me</Link>
           </Button>
@@ -38,16 +37,7 @@ export default function HomeSection() {
           </Button>
         </div>
       </div>
-      <div className="flex justify-center items-center">
-         {/* Assumes the android mascot image is saved in public/android-mascot.png */}
-         <Image
-            src="/android-mascot.png"
-            alt="Android Mascot"
-            width={400} // Adjusted size for better fit
-            height={400} // Adjusted size for better fit
-            className="rounded-lg shadow-lg object-contain" // Use object-contain to prevent distortion
-         />
-      </div>
+      {/* Image section removed */}
     </section>
   );
 }
