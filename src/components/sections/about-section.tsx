@@ -11,7 +11,7 @@ export default function AboutSection() {
             A dedicated developer driven by a passion for creating innovative and user-friendly mobile experiences.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Changed md:grid-cols-3 to md:grid-cols-2 */}
           <Card className="transition-transform duration-300 hover:scale-[1.02]">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
               <User className="w-8 h-8 text-primary" />
@@ -23,17 +23,7 @@ export default function AboutSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className="transition-transform duration-300 hover:scale-[1.02]">
-            <CardHeader className="flex flex-row items-center gap-4 pb-2">
-              <Code className="w-8 h-8 text-primary" />
-              <CardTitle>KMM Expertise</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                I have significant experience working with Kotlin Multiplatform Mobile (KMM), leveraging technologies like Jetpack Compose for UI, Ktor for networking, SQLDelight for local storage, and Koin for dependency injection.
-              </p>
-            </CardContent>
-          </Card>
+          {/* Removed KMM Expertise Card */}
           <Card className="transition-transform duration-300 hover:scale-[1.02]">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
               <Smartphone className="w-8 h-8 text-primary" />
