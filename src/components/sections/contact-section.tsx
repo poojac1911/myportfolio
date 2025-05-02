@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { sendEmail, type SendEmailInput } from "@/actions/send-email" // Import the server action
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -46,37 +47,33 @@ export default function ContactSection() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: Implement actual email sending via a Server Action or API route.
-    // This requires setting up an email service (e.g., Nodemailer, SendGrid, Resend).
-    console.log("Attempting to send email with the following data:");
-    console.log("To: choudharypooja0107@gmail.com");
-    console.log("From Name:", values.name);
-    console.log("From Email:", values.email);
-    console.log("Message:", values.message);
-
-    // Simulate submission delay for user feedback
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
+     // The 'values' object is already validated by Zod and matches SendEmailInput type
     try {
-       // In a real implementation, the Server Action/API call would happen here.
-       // For now, we assume success.
+       const result = await sendEmail(values); // Call the Server Action
 
-       // Show success toast
-        toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-        })
-
-        // Reset form
-        form.reset()
+       if (result.success) {
+            toast({
+                title: "Message Sent!",
+                description: result.message || "Thanks for reaching out. I'll get back to you soon.",
+            });
+            form.reset(); // Reset form on success
+       } else {
+           // Handle failure case reported by the server action
+            toast({
+                title: "Uh oh! Something went wrong.",
+                description: result.message || "There was a problem sending your message. Please check the server logs.",
+                variant: "destructive",
+            });
+       }
 
     } catch (error) {
-        console.error('Failed to send message (simulation):', error);
+        // Handle unexpected errors during the Server Action call itself
+        console.error('Failed to send message via Server Action:', error);
         toast({
             title: "Uh oh! Something went wrong.",
-            description: "There was a problem sending your message. Please try again later.",
+            description: "There was a problem connecting to the server. Please try again later.",
             variant: "destructive",
-        })
+        });
     }
   }
 
