@@ -17,8 +17,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MapPin } from "lucide-react" // Removed Phone icon import
-import { sendEmail, type SendEmailInput } from "@/actions/send-email" // Import the server action
+import { Mail, MapPin } from "lucide-react"
+import { sendEmail, type SendEmailInput } from "@/actions/send-email"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -35,7 +35,6 @@ const formSchema = z.object({
 export default function ContactSection() {
    const { toast } = useToast()
 
-  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,20 +44,17 @@ export default function ContactSection() {
     },
   })
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-     // The 'values' object is already validated by Zod and matches SendEmailInput type
     try {
-       const result = await sendEmail(values); // Call the Server Action
+       const result = await sendEmail(values);
 
        if (result.success) {
             toast({
                 title: "Message Sent!",
                 description: result.message || "Thanks for reaching out. I'll get back to you soon.",
             });
-            form.reset(); // Reset form on success
+            form.reset();
        } else {
-           // Handle failure case reported by the server action
             toast({
                 title: "Uh oh! Something went wrong.",
                 description: result.message || "There was a problem sending your message. Please try again or check the server configuration.",
@@ -67,7 +63,6 @@ export default function ContactSection() {
        }
 
     } catch (error) {
-        // Handle unexpected errors during the Server Action call itself
         console.error('Failed to send message via Server Action:', error);
         toast({
             title: "Uh oh! Something went wrong.",
@@ -87,7 +82,6 @@ export default function ContactSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Info */}
            <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
             <div className="flex items-start gap-4">
@@ -99,7 +93,6 @@ export default function ContactSection() {
                 </a>
               </div>
             </div>
-             {/* Phone number section removed */}
              <div className="flex items-start gap-4">
               <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
                <div>
@@ -109,14 +102,17 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <Card className="shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
              <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
              </CardHeader>
             <CardContent>
                 <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
+                  suppressHydrationWarning // Add suppressHydrationWarning here
+                >
                     <FormField
                     control={form.control}
                     name="name"
