@@ -46,8 +46,30 @@ export default function ContactSection() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: Implement actual form submission logic (e.g., send email, API call)
-    console.log("Form submitted:", values)
+    // TODO: Implement actual form submission logic (e.g., send email via API)
+    // Example: using a server action or API route
+    // try {
+    //   const response = await fetch('/api/contact', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(values),
+    //   });
+    //   if (!response.ok) throw new Error('Network response was not ok.');
+    //   toast({
+    //     title: "Message Sent!",
+    //     description: "Thanks for reaching out. I'll get back to you soon.",
+    //   })
+    //   form.reset()
+    // } catch (error) {
+    //   console.error('Failed to send message:', error);
+    //    toast({
+    //     title: "Uh oh! Something went wrong.",
+    //     description: "There was a problem sending your message. Please try again later.",
+    //     variant: "destructive",
+    //   })
+    // }
+
+     console.log("Form submitted (simulated):", values)
 
      // Simulate API call
      await new Promise(resolve => setTimeout(resolve, 1000));
@@ -79,8 +101,8 @@ export default function ContactSection() {
               <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
               <div>
                 <h4 className="font-medium">Email</h4>
-                <a href="mailto:poojachoudhary170702@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  poojachoudhary170702@gmail.com
+                <a href="mailto:poojachoudhary8067@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  poojachoudhary8067@gmail.com
                 </a>
               </div>
             </div>
@@ -88,8 +110,8 @@ export default function ContactSection() {
               <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
                <div>
                 <h4 className="font-medium">Phone</h4>
-                <a href="tel:+919324358896" className="text-muted-foreground hover:text-primary transition-colors">
-                  +91 93243 58896
+                <a href="tel:+917387837638" className="text-muted-foreground hover:text-primary transition-colors">
+                  +91 73878 37638
                 </a>
               </div>
             </div>
@@ -103,7 +125,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card> {/* Removed shadow-md */}
+          <Card className="shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
              <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
              </CardHeader>

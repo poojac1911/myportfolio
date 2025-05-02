@@ -1,16 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Code, Brain } from "lucide-react"; // Removed unused Users import
+import { CheckCircle, Code, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const technicalSkills = [
-  "Kotlin", "KMM (Kotlin Multiplatform Mobile)", "Jetpack Compose", "Android SDK", "Java",
-  "Ktor (Networking)", "SQLDelight (Database)", "Koin (DI)", "Firebase", "REST APIs",
-  "MVVM, MVI Architectures", "Git", "XML Layouts", "Room DB", "Retrofit", "Unit Testing (Basic)", "iOS (Basic)"
+  "Kotlin", "Java", "KMM (Kotlin Multiplatform Mobile)", "Jetpack Compose", "XML",
+  "Android SDK", "SQLDelight", "Ktor", "Koin", "Firebase",
+  "MVVM Architecture", "Dependency Injection", "Modular Development",
+  "Android UI/UX Design", "REST APIs", "Git", "GitHub"
 ];
 
 const softSkills = [
-  "Problem Solving", "Team Collaboration", "Communication", "Agile Methodologies",
-  "Adaptability", "Attention to Detail", "Time Management", "Eagerness to Learn"
+  "Technical Documentation", "Code Explanation", "Problem Solving", "Teamwork",
+  "Client Communication", "Adaptability", "Attention to Detail", "Time Management"
 ];
 
 export default function SkillsSection() {
@@ -23,7 +24,7 @@ export default function SkillsSection() {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow-sm, added hover */}
+        <Card className="transition-transform duration-300 hover:scale-[1.02] shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
              <Code className="w-6 h-6 text-primary" />
              <CardTitle>Technical Skills</CardTitle>
@@ -39,7 +40,7 @@ export default function SkillsSection() {
             </ul>
           </CardContent>
         </Card>
-         <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow-sm, added hover */}
+         <Card className="transition-transform duration-300 hover:scale-[1.02] shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
              <Brain className="w-6 h-6 text-primary" />
              <CardTitle>Soft Skills</CardTitle>
@@ -57,8 +58,9 @@ export default function SkillsSection() {
         </Card>
       </div>
         <div className="text-center mt-12">
+           {/* Link to resume file - Ensure the file exists in the public folder */}
            <Button variant="default" size="lg" asChild>
-             <a href="/pooja_choudhary_resume.pdf" download>
+             <a href="/pooja_choudhary_resume.pdf" download="Pooja_Choudhary_Resume.pdf">
               Download My Resume
              </a>
            </Button>

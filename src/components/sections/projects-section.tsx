@@ -14,54 +14,54 @@ interface Project {
 const projects: Project[] = [
    {
     title: "Skill Connect",
-    description: "A KMM application connecting users based on skills. Features include user profiles, skill matching, and in-app chat.",
-    technologies: ["KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Koin", "Firebase (Auth/Messaging)"],
-    githubUrl: "https://github.com/pooja-choudhary-17/SkillConnect", // Example URL
+    description: "A blockchain-powered KMM social networking platform for EdTech. Features: cross-platform logic, camera/gallery, PDF handling, PayPal, WebSockets, deep linking.", // Description from Experience
+    technologies: ["KMM", "Kotlin", "Jetpack Compose", "Ktor", "SQLDelight", "Koin", "Decompose", "Firebase (Auth/Messaging)", "WebSockets", "PayPal API"], // Combined tech
+    githubUrl: "https://github.com/pooja-choudhary-17/SkillConnect",
   },
    {
     title: "Eat App",
-    description: "A KMM based food ordering application featuring restaurant listings, menu browsing, order placement, and real-time tracking.",
-    technologies: ["KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Google Maps API"],
+    description: "Intuitive KMM food ordering and reservation app with real-time tracking, MVVM architecture, Google Maps, and Stripe integration.", // Description from Experience
+    technologies: ["KMM", "Kotlin", "Jetpack Compose", "Ktor", "SQLDelight", "MVVM", "Google Maps API", "Stripe API"], // Combined tech
   },
    {
     title: "SkillSwap",
-    description: "Native Android app enabling users to exchange skills and services within their community. Included user ratings and reviews.",
+    description: "Native Android skill-exchange platform with user profiles, matching algorithm, ratings, and reviews.", // Combined description
     technologies: ["Kotlin", "Android SDK", "Firebase Realtime DB", "MVVM", "XML Layouts"],
-    githubUrl: "https://github.com/pooja-choudhary-17/SkillSwap", // Example URL
+    githubUrl: "https://github.com/pooja-choudhary-17/SkillSwap",
   },
   {
     title: "RideShare",
-    description: "An Android application for carpooling, featuring route planning, real-time location tracking, and payment integration.",
-    technologies: ["Kotlin", "Android SDK", "Google Maps SDK", "Firebase Firestore", "Node.js (Backend)"],
+    description: "Android carpooling application featuring real-time location tracking, route optimization, and potentially payment integration.", // Combined description
+    technologies: ["Kotlin", "Android SDK", "Google Maps SDK", "Firebase Firestore", "Node.js (Backend)"], // Added Node.js from previous
   },
    {
     title: "Neatflix",
-    description: "A movie browsing app clone built with Android native technologies, focusing on clean UI and API integration.",
-    technologies: ["Kotlin", "Android SDK", "Retrofit", "Glide", "MVVM", "TMDB API"],
-    githubUrl: "https://github.com/pooja-choudhary-17/Neatflix", // Example URL
+    description: "A movie browsing app clone (Android native) focusing on clean UI, API integration, recommendations, and offline downloads.", // Combined description
+    technologies: ["Kotlin", "Android SDK", "Retrofit", "Glide", "MVVM", "TMDB API", "XML Layouts"], // Added XML
+    githubUrl: "https://github.com/pooja-choudhary-17/Neatflix",
   },
   {
     title: "Placement Preparation App",
-    description: "Android app designed to help students prepare for placements with resources, mock tests, and interview questions.",
-    technologies: ["Java", "Android SDK", "SQLite", "XML Layouts"],
+    description: "Android app aiding students in interview preparation with resources, leaderboards, notifications, feedback, etc.", // Description from resume project list
+    technologies: ["Java", "Android SDK", "Firebase", "XML Layouts"], // Updated tech
   },
    {
     title: "ExpensePal",
-    description: "A simple Android expense tracker app to manage personal finances.",
-    technologies: ["Kotlin", "Android SDK", "Room Persistence Library", "MVVM"],
-     githubUrl: "https://github.com/pooja-choudhary-17/ExpensePal", // Example URL
+    description: "Android expense tracker with personalized budgeting, reports, real-time tracking, offline storage, and Firebase integration.", // Description from resume project list
+    technologies: ["Kotlin", "Android SDK", "Room Persistence Library", "MVVM", "Firebase"], // Updated tech
+     githubUrl: "https://github.com/pooja-choudhary-17/ExpensePal",
   },
    {
     title: "INotes",
-    description: "Note-taking application for Android with features like rich text editing and categorization.",
-    technologies: ["Java", "Android SDK", "SQLite", "RecyclerView"],
-     githubUrl: "https://github.com/pooja-choudhary-17/iNotes", // Example URL
+    description: "Note-taking application using Python, FastAPI & MongoDB for backend storage, likely with an Android frontend.", // Description from resume project list
+    technologies: ["Python", "FastAPI", "MongoDB", "Android SDK (Frontend)", "Java/Kotlin"], // Updated tech, assumed Android frontend
+     githubUrl: "https://github.com/pooja-choudhary-17/iNotes", // Kept existing link, might need verification
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="bg-secondary dark:bg-secondary/80"> {/* Adjusted background */}
+    <section id="projects" className="bg-secondary dark:bg-secondary/80">
       <div className="container">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">My Projects</h2>
@@ -71,7 +71,7 @@ export default function ProjectsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow/border/bg classes, added hover */}
+            <Card key={index} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
               <CardHeader className="pt-6">
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>

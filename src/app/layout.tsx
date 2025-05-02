@@ -11,8 +11,8 @@ const fontSans = GeistSans;
 
 export const metadata: Metadata = {
   title: "Pooja Choudhary | Android Developer",
-  description: "Personal portfolio website for Pooja Choudhary, an Android Developer with Kotlin Multiplatform experience based in Mumbai, India.",
-  keywords: "Pooja Choudhary, Android Developer, Kotlin, KMM, Jetpack Compose, Ktor, SQLDelight, Koin, Portfolio, Mumbai, India",
+  description: "Personal portfolio for Pooja Choudhary, an Android Developer specializing in Kotlin Multiplatform (KMM), Jetpack Compose, and native Android development. Based in Mumbai, India.",
+  keywords: "Pooja Choudhary, Android Developer, Kotlin, KMM, Kotlin Multiplatform, Jetpack Compose, Ktor, SQLDelight, Koin, MVVM, Portfolio, Mumbai, India",
 };
 
 export default function RootLayout({

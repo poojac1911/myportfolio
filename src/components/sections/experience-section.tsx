@@ -7,37 +7,47 @@ interface ExperienceItem {
   company: string;
   duration: string;
   description: string;
+  projects?: string[]; // Optional list of key projects
   technologies: string[];
 }
 
 const experiences: ExperienceItem[] = [
    {
-    title: "Associate Software Developer",
-    company: "Wharf Street Studios",
-    duration: "Feb 2024 – Present",
-    description: "Developing innovative cross-platform solutions using Kotlin Multiplatform Mobile (KMM). Focused on building shared logic for Android and iOS, implementing modern UI with Jetpack Compose, and integrating various KMM libraries.",
-    technologies: ["Kotlin", "KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Koin", "Android SDK", "iOS (Basic)", "Git"],
-  },
-  {
     title: "Android Developer",
-    company: "Wharf Street Strategies",
-    duration: "Jun 2023 – Feb 2024",
-    description: "Contributed to native Android application development. Gained experience in Android architecture components, UI/UX implementation, and working within agile development cycles.",
-    technologies: ["Kotlin", "Android SDK", "XML Layouts", "Retrofit", "Room", "MVVM", "Git"],
+    company: "Wharf Street Studios",
+    duration: "Approx. 1 Year (Current)", // Duration derived from resume, specific dates not provided
+    description: "Developing cross-platform applications using Kotlin Multiplatform Mobile (KMM), sharing business logic across Android and iOS. Implementing features, optimizing performance, and leveraging Ktor, SQLDelight, and Koin for seamless architecture.",
+    projects: [
+        "Skill Connect App: Blockchain-powered EdTech social network (KMM, Ktor, Decompose, Jetpack Compose, Camera/Gallery, PDF handling, PayPal, WebSockets, Deep Linking).",
+        "Eat App: Food ordering/reservation app (MVVM, Google Maps API, Stripe Integration)."
+    ],
+    technologies: ["Kotlin", "KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Koin", "Android SDK", "iOS (Basic)", "Git", "Decompose", "WebSockets"],
   },
   {
+    title: "Android Development Intern",
+    company: "Wharf Street Strategies",
+    duration: "4 Months",
+    description: "Contributed to KMM projects, working on shared codebases. Developed Android UIs using XML and Jetpack Compose, ensuring responsive designs.",
+    technologies: ["KMM", "Kotlin", "Android SDK", "XML Layouts", "Jetpack Compose", "Git"],
+  },
+   {
     title: "Freelance Android Developer",
     company: "Self-Employed",
-    duration: "Jan 2023 – May 2023",
-    description: "Worked on various freelance projects, developing custom Android applications for clients. Handled requirements gathering, development, testing, and deployment.",
-    technologies: ["Kotlin", "Java", "Android SDK", "Firebase", "REST APIs", "UI/UX Design"],
+    duration: "Jan 2023 – May 2023", // Retained from previous data as resume lacks specifics
+    description: "Developed custom Android applications for clients. Responsibilities included requirements gathering, development, testing, deployment, and creating technical documentation/presentations.",
+     projects: [
+        "SkillSwap App: Skill-exchange platform with user profiles and matching.",
+        "RideShare App: Carpooling app with real-time tracking and route optimization.",
+        "Neatflix App: Streaming app clone with offline downloads."
+     ],
+    technologies: ["Kotlin", "Java", "Android SDK", "Firebase", "REST APIs", "UI/UX Design", "Technical Documentation"],
   },
   {
-    title: "Android Developer Intern",
+    title: "Web Development Intern", // Updated role
     company: "PHN Technology Pvt. Ltd.",
-    duration: "Jul 2022 – Dec 2022",
-    description: "Assisted senior developers in building and maintaining Android applications. Gained practical experience in the software development lifecycle and collaborated with team members on feature implementation and bug fixing.",
-    technologies: ["Java", "Android SDK", "XML", "Git", "Debugging"],
+    duration: "Apr 2023 – Jun 2023", // Updated duration
+    description: "Gained experience in web development principles and practices.", // Generic description as specifics are missing
+    technologies: ["Web Development (General)"], // Generic skill as specifics are missing
   },
 ];
 
@@ -57,7 +67,7 @@ export default function ExperienceSection() {
                <div className="absolute w-3 h-3 rounded-full -left-[calc(0.375rem-1px)] mt-1 bg-primary border-2 border-background dark:border-card"></div>
                 <p className="text-sm text-muted-foreground text-right">{exp.duration}</p>
              </div>
-            <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow classes, added hover */}
+            <Card className="transition-transform duration-300 hover:scale-[1.02] shadow-[-4px_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[-4px_4px_15px_rgba(0,0,0,0.2)]">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Briefcase className="w-5 h-5 text-primary hidden md:inline" />
@@ -67,7 +77,17 @@ export default function ExperienceSection() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-muted-foreground">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
+                {exp.projects && exp.projects.length > 0 && (
+                    <div className="mt-2 space-y-1">
+                        <h4 className="font-medium text-sm text-foreground/80">Key Projects:</h4>
+                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-0.5">
+                            {exp.projects.map((proj, projIndex) => (
+                                <li key={projIndex}>{proj}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                <div className="flex flex-wrap gap-2 pt-2">
                   {exp.technologies.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
                   ))}
