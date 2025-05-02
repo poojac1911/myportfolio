@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { GeistSans as FontSans } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans'; // Corrected import
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -7,10 +7,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-geist-sans',
-});
+const fontSans = GeistSans; // Use GeistSans directly as per its documentation
 
 export const metadata: Metadata = {
   title: "Pooja Choudhary | Android Developer",
@@ -28,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable
+          fontSans.variable // Apply the font variable
         )}
       >
         <ThemeProvider
