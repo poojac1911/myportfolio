@@ -2,13 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import Image from "next/image"; // Removed Image import
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
-  // imageUrl?: string; // Optional image URL - Commented out as it's no longer used
   githubUrl?: string; // Optional GitHub URL
   liveUrl?: string; // Optional Live demo URL
 }
@@ -18,60 +16,52 @@ const projects: Project[] = [
     title: "Skill Connect",
     description: "A KMM application connecting users based on skills. Features include user profiles, skill matching, and in-app chat.",
     technologies: ["KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Koin", "Firebase (Auth/Messaging)"],
-    // imageUrl: "https://picsum.photos/seed/skillconnect/600/400", // Removed
     githubUrl: "https://github.com/pooja-choudhary-17/SkillConnect", // Example URL
   },
    {
     title: "Eat App",
     description: "A KMM based food ordering application featuring restaurant listings, menu browsing, order placement, and real-time tracking.",
     technologies: ["KMM", "Jetpack Compose", "Ktor", "SQLDelight", "Google Maps API"],
-    // imageUrl: "https://picsum.photos/seed/eatapp/600/400", // Removed
   },
    {
     title: "SkillSwap",
     description: "Native Android app enabling users to exchange skills and services within their community. Included user ratings and reviews.",
     technologies: ["Kotlin", "Android SDK", "Firebase Realtime DB", "MVVM", "XML Layouts"],
-    // imageUrl: "https://picsum.photos/seed/skillswap/600/400", // Removed
     githubUrl: "https://github.com/pooja-choudhary-17/SkillSwap", // Example URL
   },
   {
     title: "RideShare",
     description: "An Android application for carpooling, featuring route planning, real-time location tracking, and payment integration.",
     technologies: ["Kotlin", "Android SDK", "Google Maps SDK", "Firebase Firestore", "Node.js (Backend)"],
-    // imageUrl: "https://picsum.photos/seed/rideshare/600/400", // Removed
   },
    {
     title: "Neatflix",
     description: "A movie browsing app clone built with Android native technologies, focusing on clean UI and API integration.",
     technologies: ["Kotlin", "Android SDK", "Retrofit", "Glide", "MVVM", "TMDB API"],
-    // imageUrl: "https://picsum.photos/seed/neatflix/600/400", // Removed
     githubUrl: "https://github.com/pooja-choudhary-17/Neatflix", // Example URL
   },
   {
     title: "Placement Preparation App",
     description: "Android app designed to help students prepare for placements with resources, mock tests, and interview questions.",
     technologies: ["Java", "Android SDK", "SQLite", "XML Layouts"],
-    // imageUrl: "https://picsum.photos/seed/placementprep/600/400", // Removed
   },
    {
     title: "ExpensePal",
     description: "A simple Android expense tracker app to manage personal finances.",
     technologies: ["Kotlin", "Android SDK", "Room Persistence Library", "MVVM"],
-    // imageUrl: "https://picsum.photos/seed/expensepal/600/400", // Removed
      githubUrl: "https://github.com/pooja-choudhary-17/ExpensePal", // Example URL
   },
    {
     title: "INotes",
     description: "Note-taking application for Android with features like rich text editing and categorization.",
     technologies: ["Java", "Android SDK", "SQLite", "RecyclerView"],
-    // imageUrl: "https://picsum.photos/seed/inotes/600/400", // Removed
      githubUrl: "https://github.com/pooja-choudhary-17/iNotes", // Example URL
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="bg-card"> {/* Adjusted background */}
+    <section id="projects" className="bg-secondary dark:bg-secondary/80"> {/* Adjusted background */}
       <div className="container">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">My Projects</h2>
@@ -81,9 +71,8 @@ export default function ProjectsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-border bg-background"> {/* Adjusted card styling */}
-              {/* Removed Image rendering section */}
-              <CardHeader className="pt-6"> {/* Added padding top */}
+            <Card key={index} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow/border/bg classes, added hover */}
+              <CardHeader className="pt-6">
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
@@ -91,7 +80,7 @@ export default function ProjectsSection() {
                  <div> {/* Wrapper for tech badges */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary">{tech}</Badge> // Changed badge variant
+                      <Badge key={tech} variant="secondary">{tech}</Badge>
                     ))}
                   </div>
                 </div>

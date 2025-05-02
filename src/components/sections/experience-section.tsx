@@ -57,7 +57,7 @@ export default function ExperienceSection() {
                <div className="absolute w-3 h-3 rounded-full -left-[calc(0.375rem-1px)] mt-1 bg-primary border-2 border-background dark:border-card"></div>
                 <p className="text-sm text-muted-foreground text-right">{exp.duration}</p>
              </div>
-            <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow classes, added hover */}
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Briefcase className="w-5 h-5 text-primary hidden md:inline" />

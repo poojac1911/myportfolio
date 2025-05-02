@@ -12,7 +12,7 @@ export default function AboutSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="shadow-md hover:shadow-lg transition-shadow duration-300">
+          <Card className="transition-transform duration-300 hover:scale-[1.02]">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
               <User className="w-8 h-8 text-primary" />
               <CardTitle>My Background</CardTitle>
@@ -23,7 +23,7 @@ export default function AboutSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className="shadow-md hover:shadow-lg transition-shadow duration-300">
+          <Card className="transition-transform duration-300 hover:scale-[1.02]">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
               <Code className="w-8 h-8 text-primary" />
               <CardTitle>KMM Expertise</CardTitle>
@@ -34,7 +34,7 @@ export default function AboutSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className="shadow-md hover:shadow-lg transition-shadow duration-300">
+          <Card className="transition-transform duration-300 hover:scale-[1.02]">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
               <Smartphone className="w-8 h-8 text-primary" />
               <CardTitle>Passion for Cross-Platform</CardTitle>

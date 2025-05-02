@@ -103,7 +103,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-md">
+          <Card> {/* Removed shadow-md */}
              <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
              </CardHeader>

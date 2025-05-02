@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Code, Users, Brain } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Added import
+import { CheckCircle, Code, Brain } from "lucide-react"; // Removed unused Users import
+import { Button } from "@/components/ui/button";
 
 const technicalSkills = [
   "Kotlin", "KMM (Kotlin Multiplatform Mobile)", "Jetpack Compose", "Android SDK", "Java",
@@ -23,7 +23,7 @@ export default function SkillsSection() {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="shadow-sm">
+        <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow-sm, added hover */}
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
              <Code className="w-6 h-6 text-primary" />
              <CardTitle>Technical Skills</CardTitle>
@@ -39,7 +39,7 @@ export default function SkillsSection() {
             </ul>
           </CardContent>
         </Card>
-         <Card className="shadow-sm">
+         <Card className="transition-transform duration-300 hover:scale-[1.02]"> {/* Removed shadow-sm, added hover */}
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
              <Brain className="w-6 h-6 text-primary" />
              <CardTitle>Soft Skills</CardTitle>
