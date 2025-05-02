@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, MapPin } from "lucide-react" // Removed Phone icon import
 import { sendEmail, type SendEmailInput } from "@/actions/send-email" // Import the server action
 
 const formSchema = z.object({
@@ -61,7 +61,7 @@ export default function ContactSection() {
            // Handle failure case reported by the server action
             toast({
                 title: "Uh oh! Something went wrong.",
-                description: result.message || "There was a problem sending your message. Please check the server logs.",
+                description: result.message || "There was a problem sending your message. Please try again or check the server configuration.",
                 variant: "destructive",
             });
        }
@@ -94,20 +94,12 @@ export default function ContactSection() {
               <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
               <div>
                 <h4 className="font-medium">Email</h4>
-                <a href="mailto:poojachoudhary8067@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  poojachoudhary8067@gmail.com
+                <a href="mailto:choudharypooja0107@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  choudharypooja0107@gmail.com
                 </a>
               </div>
             </div>
-             <div className="flex items-start gap-4">
-              <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
-               <div>
-                <h4 className="font-medium">Phone</h4>
-                <a href="tel:+917387837638" className="text-muted-foreground hover:text-primary transition-colors">
-                  +91 73878 37638
-                </a>
-              </div>
-            </div>
+             {/* Phone number section removed */}
              <div className="flex items-start gap-4">
               <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0"/>
                <div>
