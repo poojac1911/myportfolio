@@ -11,9 +11,22 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Skeleton } from "@/components/ui/skeleton" // Import Skeleton
 
 export default function ThemeToggle() {
   const { setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  // useEffect only runs on the client, so we can safely show the UI
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    // Render a placeholder or skeleton while waiting for mount
+    // to avoid hydration mismatch based on theme preference
+    return <Skeleton className="h-10 w-10 rounded-md" />;
+  }
 
   return (
     <DropdownMenu>
