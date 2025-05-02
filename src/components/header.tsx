@@ -31,10 +31,7 @@ export default function Header() {
         </nav>
         {/* Mobile Menu (Placeholder) - Could add Sheet component later if needed */}
         <div className="flex flex-1 items-center justify-end space-x-4">
-           {/* Link to resume file - Ensure the file exists in the public folder */}
-           <Button variant="outline" size="sm" asChild>
-            <a href="/pooja_choudhary_resume.pdf" download="Pooja_Choudhary_Resume.pdf">Download Resume</a>
-           </Button>
+          {/* Download Resume button removed */}
           <ThemeToggle />
         </div>
       </div>

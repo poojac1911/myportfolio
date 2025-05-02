@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Code, Brain } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const technicalSkills = [
   "Kotlin", "Java", "KMM (Kotlin Multiplatform Mobile)", "Jetpack Compose", "XML",
@@ -20,7 +19,7 @@ export default function SkillsSection() {
       <div className="text-center space-y-4 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          My technical expertise and professional strengths.
+          My technical skills and professional strengths.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -57,14 +56,7 @@ export default function SkillsSection() {
           </CardContent>
         </Card>
       </div>
-        <div className="text-center mt-12">
-           {/* Link to resume file - Ensure the file exists in the public folder */}
-           <Button variant="default" size="lg" asChild>
-             <a href="/pooja_choudhary_resume.pdf" download="Pooja_Choudhary_Resume.pdf">
-              Download My Resume
-             </a>
-           </Button>
-        </div>
+        {/* Download Resume button removed from here */}
     </section>
   );
 }
